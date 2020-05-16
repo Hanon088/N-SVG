@@ -1193,67 +1193,13 @@
        clouds(3);
        fog();
       }
-     /* Unused functions for automatic seasons
-     function sleep(ms){
-          //Timing function
-          return new Promise(resolve => setTimeout(resolve, ms));
-        }
-      
-      async function winter(){
-        //Control winter weathers
-      clouds(5);
-      snow();
-      await sleep(5000);
-      snow();
-      await sleep(5000);
-      snow();
-      snow();
-      await sleep(5000);
-      snow();
-      snow();
-      await sleep(5000);
-      snow();
-      await sleep(5000);
-      snow();
-      await sleep(5000);
-      }
-    
-      async function spring(){
-        //Control spring weathers
-        clouds(20);
-        rain();
-        rain();
-        var t = setInterval(rain, 1000);
-        await sleep(10000);
-        clearInterval(t);
-        svgNode.innerHTML = "";
-        clouds(10);
-        await sleep(10000);
-        svgNode.innerHTML = "";
-        clouds(3);
-        await sleep(2000);
-      }
-
-    async function seasons(){
-      //Timing the seasons automatically
-      summer();
-      await sleep(30000);
-      svgNode.innerHTML = "";
-      autumn();
-      await sleep(30000);
-      svgNode.innerHTML = "";
-      winter();
-      await sleep(30000);
-      svgNode.innerHTML = "";
-      spring();
-      await sleep(30000);
-    }
-    */
+     
     var colorTag = [0], leaves = ["summer_leaf", "autumn_leaf", "winter_leaf", "spring_leaf"];
     function change_color(){
       /*Change the leaf colors*/
       current = colorTag[0];
-      colorTag[0] = (colorTag[0] == 3)? 0: colorTag[0] +1;
+      colorTag[0] += 1;
+      if(colorTag[0] == 4){location.reload();return false;}
       for(let i=0; i< document.getElementsByClassName(leaves[current]).length ;i++){
         document.getElementsByClassName(leaves[current])[i].setAttributeNS(null, "class", leaves[colorTag[0]]);
       }
