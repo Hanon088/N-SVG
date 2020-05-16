@@ -1199,9 +1199,11 @@
       /*Change the leaf colors*/
       current = colorTag[0];
       colorTag[0] += 1;
-      if(colorTag[0] == 3){location.reload();return false;}
+      if(colorTag[0] >= 3){location.reload();return false;}
+      else{
       for(let i=0; i< document.getElementsByClassName(leaves[current]).length ;i++){
         document.getElementsByClassName(leaves[current])[i].setAttributeNS(null, "class", leaves[colorTag[0]]);
+      }
       }
     }
 
